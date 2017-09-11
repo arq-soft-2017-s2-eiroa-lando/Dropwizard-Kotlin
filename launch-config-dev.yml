@@ -1,0 +1,21 @@
+server:
+  type: simple
+  applicationContextPath: /serverunq
+  connector:
+    type: http
+    port: 9090
+
+logging:
+  level: INFO
+  loggers:
+    com.etermax.kotlin.poker: DEBUG
+  appenders:
+      - type: console
+      - type: file
+        threshold: DEBUG
+        logFormat: "%-6level [%d{HH:mm:ss.SSS}] [%t] %logger{5} - %X{code} %msg %n"
+        currentLogFilename: serverunq.log
+        archivedLogFilenamePattern: serverunq-%d{yyyy-MM-dd}-%i.log.gz
+        archivedFileCount: 3
+        timeZone: UTC
+        maxFileSize: 5MB
