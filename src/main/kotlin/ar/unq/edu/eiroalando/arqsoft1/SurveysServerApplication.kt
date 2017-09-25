@@ -6,6 +6,7 @@ import ar.unq.edu.eiroalando.arqsoft1.rest.resources.SurveyResource
 import ar.unq.edu.eiroalando.arqsoft1.services.SurveyService
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import io.dropwizard.Application
+import io.dropwizard.assets.AssetsBundle
 import io.dropwizard.jersey.setup.JerseyEnvironment
 import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
@@ -28,6 +29,7 @@ class SurveysServerApplication : Application<SurveysServerApplicationConfigurati
     override fun initialize(bootstrap: Bootstrap<SurveysServerApplicationConfiguration>) {
         super.initialize(bootstrap)
         bootstrap.objectMapper.registerKotlinModule()
+        bootstrap.addBundle(AssetsBundle("/html", "/app", "index.html", "static"))
     }
 
     override fun run(configuration: SurveysServerApplicationConfiguration, environment: Environment) {
