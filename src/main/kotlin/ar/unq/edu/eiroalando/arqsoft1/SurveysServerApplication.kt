@@ -12,6 +12,8 @@ import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
 
 
+
+
 class SurveysServerApplication : Application<SurveysServerApplicationConfiguration>() {
 
     var surveyDao:SurveyDao = SurveyDao()
